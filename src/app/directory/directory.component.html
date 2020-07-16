@@ -1,0 +1,59 @@
+<!--<p ngClass="red">directory works!</p>-->
+<!--&lt;!&ndash;属性指令&ndash;&gt;-->
+<!--<p [ngClass]="{'blue': true, 'red': false, 'underline': true}">属性指令表达式1</p>-->
+<!--<p [ngClass]="classes">属性指令表达式2</p>-->
+<!--&lt;!&ndash;<p>{{person }}</p>&ndash;&gt;-->
+
+<!--&lt;!&ndash;ngClass&ndash;&gt;-->
+<!--<style>-->
+  <!--.blue{ color: #0000ff}-->
+  <!--.red{ color: red}-->
+  <!--.underline{ text-decoration: underline}-->
+<!--</style>-->
+
+
+<!--&lt;!&ndash;*ngIf    &ndash;&gt;-->
+<!--<p *ngIf = "bool">如果条件为真，可以看到这段文字，否则看不到</p>-->
+
+
+<!--&lt;!&ndash;*nfFor&ndash;&gt;-->
+<!--<ul>-->
+  <!--<li *ngFor="let man of people">{{man.name}}</li>-->
+  <!--<li *ngFor="let man of people">{{man.color}}</li>-->
+<!--</ul>-->
+
+<!--<h2>Personal Contact</h2>-->
+
+<!--<form id = "filter">-->
+  <!--<label>Filter Name</label>-->
+  <!--&lt;!&ndash;<input type="text" [(ngModel)] = "term" name="first"/>&ndash;&gt;-->
+<!--</form  >-->
+
+
+<h2>Personal Contact</h2>
+<form>
+  <label>Filter Name</label>
+  <!--To Resolve:-->
+  <!--ERROR Error: If ngModel is used within a form tag, either the name attribute must be set or the form-->
+  <!--control must be defined as 'standalone' in ngModelOptions.-->
+  <!--Example 1: <input [(ngModel)]="person.firstName" name="first">-->
+  <!--Example 2: <input [(ngModel)]="person.firstName" [ngModelOptions]="{standalone: true}">-->
+  <!--Add name="first" as the example-->
+  <input type="text" [(ngModel)]="term_test" name="first"/>
+</form>
+<ul id="person-listing">
+  <!--<li *ngFor="let person of people | filter: term">-->
+  <li *ngFor="let person of people | search: term_test">
+    <div class="single-person">
+      <span [ngStyle] = "{background:person.color}">{{person.color}}</span>
+      <h3>{{person.name }}</h3>
+      <h3>{{person.phone }}</h3>
+      <!--<span [ngStyle] = "{background:person.color}">{{person.color|slice:1:3}}</span>-->
+      <!--<h3>{{person.name | uppercase}}</h3>-->
+      <!--<h3>{{person.phone| slice:1 }}</h3>-->
+      <hr/>
+    </div>
+  </li>
+</ul>
+
+<button (click)="logIt()">Log Me</button>
