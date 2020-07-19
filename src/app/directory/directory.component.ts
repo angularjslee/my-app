@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 //import {ActivatedRoute} from '@angular/router';
 import {LoggingService} from '../logging.service';
 import {DataService} from '../data.service';
+
+
+
 @Component({
   selector: 'app-directory',
   templateUrl: './directory.component.html',
@@ -24,9 +27,9 @@ export class DirectoryComponent implements OnInit {
 
   people = [
 //      数组方式取数据
-//      {name: "Henry", color: "blue", phone: "400-123"},
-//      {name: "Bucky", color: "green", phone: "400-456"},
-//      {name: "Jacky", color: "yellow", phone: "400-789"}
+      {name: "Henry", color: "blue", phone: "400-123", sex: "female"},
+      //{name: "Bucky", color: "green", phone: "400-456"},
+      {name: "Jacky", color: "yellow", phone: "400-789"}
 
 //      http 请求 加 JSON 方式取数据
 
